@@ -1,0 +1,14 @@
+﻿  FiniteAutomaton.cpp
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(3,17): error C2059: syntax error: 'const'
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,38): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,46): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,52): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,54): error C2059: syntax error: '{'
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,54): error C2143: syntax error: missing ';' before '{'
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\FiniteAutomaton.cpp(4,54): error C2447: '{': missing function header (old-style formal list?)
+  Grammar.cpp
+  Source.cpp
+C:\Users\octav\Desktop\Teme_LFC\TEMA1_LFC\Tema1_LFC\Source.cpp(15,6): warning C4101: 'mata': unreferenced local variable
+  Generating Code...
