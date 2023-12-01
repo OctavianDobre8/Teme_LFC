@@ -14,10 +14,11 @@ class Grammar
 {
 public:
 	Grammar();
+	Grammar(const std::set<std::string>& VN, const std::set<std::string>& VT, const std::string& S, const std::vector<Production>& P);
 
 	void verifyGrammar();
 
-	void isRegular();
+	bool isRegular();
 
 	void generateWord(std::string S);
 
@@ -30,6 +31,7 @@ private:
 	std::set<std::string> VT;
 	std::string S;
 	std::vector<Production> P;
+
 
 };
 

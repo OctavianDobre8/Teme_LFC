@@ -1,19 +1,24 @@
-#include<iostream>
-#include<fstream>
+﻿#include <iostream>
+#include <unordered_set>
+#include <set>
+#include <unordered_map>
+#include <vector>
+#include <string> 
 #include "Grammar.h"
 
-int main()
+int main() 
 {
-	Grammar grammar;
-	std::ifstream fin("intput.txt");
-	if (!fin.is_open())
-	{
-		std::cerr << "Eroare la deschiderea fisierului!" << std::endl;
-		return 1;
-	}
-	fin >> grammar;
-	int mata;
+    std::set<std::string> VN = { "A", "B" };
+    std::set<std::string> VT = { "a" };
+    std::string S = "A";
+    std::vector<Production> P = { {"A", {"aB", "c"}}, {"B", {"a"}} };
 
+    Grammar myGrammar(VN, VT, S, P);
 
+    if (myGrammar.isRegular())
+        std::cout << "Gramatica este regulata.\n";
+    else
+        std::cout << "Gramatica nu este regulata.\n";
 
+    return 0;
 }
