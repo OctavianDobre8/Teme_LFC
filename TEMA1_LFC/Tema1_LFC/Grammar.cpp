@@ -1,6 +1,8 @@
 #include "Grammar.h"
-#include<fstream>
-#include<iostream>
+#include <fstream>
+#include <iostream>
+#include <ctime>
+
 
 std::ostream& operator<<(std::ostream& output, const Grammar& grammar)
 {
@@ -78,6 +80,39 @@ Grammar::Grammar(const std::set<std::string>& VN,
 	: VN(VN), VT(VT), S(S), P(P)
 {}
 
+bool Grammar::verifyGrammar()
+{
+	if (VN.find(S) == VN.end()) // S apartine VN
+	{
+		std::cout << "Eroare: Simbolul de start nu apartine VN.\n";
+		return false;
+	}
+
+	for (const auto& vnSymbol : VN)
+		if (VT.find(vnSymbol) != VT.end())
+		{
+			std::cout << "Eroare: Terminalele si neterminalele nu sunt disjuncte.\n";
+			return false;
+		}
+
+	for (const auto& productie : P)
+	{
+		if (VN.find(productie.nonTerminal) == VN.end())
+		{
+			std::cout << "Eroare: Partea stanga a productiei contine un simbol care nu apartine VN.\n";
+			return false;
+		}
+		for (const auto& simbol : productie.productions)
+			if (VN.find(simbol) == VN.end() && VT.find(simbol) == VT.end())
+			{
+				std::cout << "Eroare: Partea dreapta a productiei contine un simbol care nu apartine VN sau VT.\n";
+				return false;
+			}
+	}
+
+
+}
+
 Grammar::Grammar() {};
 
 bool Grammar::isRegular()
@@ -102,4 +137,42 @@ bool Grammar::isRegular()
 	}
 	return true;
 }
+
+std::string Grammar::generateWord()
+{
+	srand(time(0));
+
+	std::string result = S;
+	std::string currentSymbol = S;
+	while (true)
+	{
+		std::vector<Production> apProductions;
+
+		for (const auto& production : P)
+			if (production.nonTerminal == currentSymbol)
+				apProductions.push_back(production);
+		
+
+		if (apProductions.empty())
+			break;
+
+
+		size_t randomIndex = rand() % apProductions.size();
+		Production chosenProduction = apProductions[randomIndex];
+
+		randomIndex = rand() % chosenProduction.productions.size();
+
+		result.replace(result.find(currentSymbol), currentSymbol.length(), chosenProduction.productions[randomIndex]);
+
+		currentSymbol = result.back();
+
+		return result;
+
+
+	}
+
+}
+
+
+
 

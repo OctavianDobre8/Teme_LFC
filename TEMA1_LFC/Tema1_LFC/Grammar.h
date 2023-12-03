@@ -16,11 +16,11 @@ public:
 	Grammar();
 	Grammar(const std::set<std::string>& VN, const std::set<std::string>& VT, const std::string& S, const std::vector<Production>& P);
 
-	void verifyGrammar();
+	bool verifyGrammar();
 
 	bool isRegular();
 
-	void generateWord(std::string S);
+	std::string generateWord();
 
 	friend std::ostream& operator<<(std::ostream& output, const Grammar& grammar);
 
